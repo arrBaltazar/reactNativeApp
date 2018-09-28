@@ -1,10 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View,TextInput } from 'react-native';
+import Login from './components/Login';
 
 export default class App extends React.Component {
   render() {
     return (
-     
+      <Login/>
+
+    /*
       <View style={styles.container}>
        <View style={styles.header}>
         <Text style={styles.headerText}>Header Section</Text>
@@ -18,6 +21,7 @@ export default class App extends React.Component {
           <TextInput style={styles.input}placeholder='Improvements'></TextInput>
         </View>
       </View>
+    */
     );
   }
 }
