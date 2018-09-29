@@ -7,11 +7,16 @@ export default class LoginForm extends React.Component{
 
             <View style={styles.container}>
                
-                <TextInput style={styles.textInput}>
-
+                <TextInput style={styles.textInput}
+                            placeholder="username"
+                            returnKeyType="next">
+                           
                 </TextInput>
 
-                <TextInput style={styles.textInput}>
+                <TextInput style={styles.textInput}
+                           placeholder="password"
+                           returnKeyType="go"
+                           secureTextEntry>
                     
                 </TextInput>
             </View> 
@@ -22,15 +27,17 @@ export default class LoginForm extends React.Component{
 }
 
 const styles = StyleSheet.create({
+    
     container:{
-        padding:20
+        padding:30
     },
 
     textInput:{
 
         height:30,
         backgroundColor:'green',
-        margin:10
+        margin:10,
+        paddingLeft:20
     }
 
 });
