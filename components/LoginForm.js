@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, TextInput, View} from 'react-native';
+import { StyleSheet, TextInput, View,Text,TouchableOpacity} from 'react-native';
 
 export default class LoginForm extends React.Component{
     render(){
@@ -9,16 +9,25 @@ export default class LoginForm extends React.Component{
                
                 <TextInput style={styles.textInput}
                             placeholder="username"
-                            returnKeyType="next">
+                            returnKeyType="next"
+                            onSubmitEditing={()=>this.passwordInput.focus()}
+                            keyboardType= 'email-address'
+                            autoCorrect= {false}
+                            >
                            
                 </TextInput>
 
                 <TextInput style={styles.textInput}
                            placeholder="password"
                            returnKeyType="go"
-                           secureTextEntry>
-                    
+                           secureTextEntry
+                           ref={(input)=>this.passwordInput = input}>
                 </TextInput>
+
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.buttonText}>Login</Text>
+                </TouchableOpacity>
+                
             </View> 
         
             );
@@ -29,15 +38,26 @@ export default class LoginForm extends React.Component{
 const styles = StyleSheet.create({
     
     container:{
-        padding:30
+        padding:18
     },
 
     textInput:{
 
         height:30,
-        backgroundColor:'green',
+        backgroundColor:'#ecf0f1',
         margin:10,
         paddingLeft:20
+    },
+
+    button:{
+        backgroundColor:"#bdc3c7",
+        paddingVertical:15,
+        margin:10,
+        marginTop:10
+    },
+
+    buttonText:{
+        textAlign:"center"
     }
 
 });
