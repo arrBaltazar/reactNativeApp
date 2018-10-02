@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, TextInput, View,Text,TouchableOpacity} from 'react-native';
+import { StyleSheet, TextInput, View,Text,TouchableOpacity,Button} from 'react-native';
 
 export default class LoginForm extends React.Component{
     render(){
+        
         return (
 
             <View style={styles.container}>
@@ -25,7 +26,8 @@ export default class LoginForm extends React.Component{
                 </TextInput>
 
                 <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Login</Text>
+                    <Text style={styles.buttonText}
+                            onPress={()=> this.props.navigation.navigate('Profile')}>Login</Text>
                 </TouchableOpacity>
                 
             </View> 

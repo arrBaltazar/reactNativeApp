@@ -7,13 +7,13 @@ export default class Login extends React.Component{
         return(
             <KeyboardAvoidingView behavior="padding" style={styles.container}>
               <View style={styles.logoContainer}>
-                <Image style={styles.logo} source={require('Project/Images/computer.jpg')}
+                <Image style={styles.logo} source={require('../Images/computer.jpg')}
                 />
                 <Text style={styles.logoText}>Test Login Style</Text>
               </View>
             
               <View styles={styles.formContainer}>
-                <LoginForm />
+                <LoginForm navigation={this.props.navigation} />
               </View>
             </KeyboardAvoidingView>
         )
