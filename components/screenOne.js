@@ -3,6 +3,11 @@ import { StyleSheet, Text, View,TextInput } from 'react-native';
 
 
 export default class screenOne extends React.Component {
+
+  static navigationOptions={
+    title:"Content Section",
+  };
+
   render() {
     return (
     
