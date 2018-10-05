@@ -3,6 +3,19 @@ import { StyleSheet, Text, View,Image,KeyboardAvoidingView} from 'react-native';
 import LoginForm from './LoginForm';
 
 export default class Login extends React.Component{
+
+static navigationOptions={
+    title:"Main Page",
+    headerStyle: {
+      backgroundColor: '#b1bdd1',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+};
+    
+
     render(){   
         return(
             <KeyboardAvoidingView behavior="padding" style={styles.container}>
