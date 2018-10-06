@@ -14,6 +14,7 @@ export default class LoginForm extends React.Component{
                             onSubmitEditing={()=>this.passwordInput.focus()}
                             keyboardType= 'email-address'
                             autoCorrect= {false}
+                            underlineColorAndroid= 'transparent'
                             >
                            
                 </TextInput>
@@ -22,6 +23,7 @@ export default class LoginForm extends React.Component{
                            placeholder="password"
                            returnKeyType="go"
                            secureTextEntry
+                           underlineColorAndroid= 'transparent'
                            ref={(input)=>this.passwordInput = input}>
                 </TextInput>
 

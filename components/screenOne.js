@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View,TextInput } from 'react-native';
+import { StyleSheet, Text, View,TextInput,KeyboardAvoidingView, ScrollView } from 'react-native';
 
 
 export default class screenOne extends React.Component {
@@ -8,22 +8,47 @@ export default class screenOne extends React.Component {
     title:"Content Section",
   };
 
+
   render() {
     return (
-    
-      <View style={styles.container}>
+      
+    <KeyboardAvoidingView behavior='padding' keyboardVerticalOffset={80} style={styles.container}>
+     
        <View style={styles.header}>
         <Text style={styles.headerText}>Header Section</Text>
        </View>
         <View style={styles.centering}>
+
+         <ScrollView >
           <Text style ={styles.text}>What good things happened today?</Text>
-          <TextInput style={styles.input} placeholder='good thing'></TextInput>
-          <TextInput style={styles.input} placeholder='good thing'></TextInput>
-          <TextInput style={styles.input} placeholder='good thing'></TextInput>
+          <TextInput style={styles.input} 
+           placeholder='good thing'
+           underlineColorAndroid= 'transparent'
+           autoCorrect={false}>
+           </TextInput>
+
+          <TextInput style={styles.input} 
+          placeholder='good thing' 
+          underlineColorAndroid= 'transparent'
+          autoCorrect={false}>
+          </TextInput>
+
+          <TextInput style={styles.input} 
+          placeholder='good thing'
+          underlineColorAndroid= 'transparent'
+          autoCorrect={false}>
+          </TextInput>
+
           <Text style ={styles.text}>What could have gone better?</Text>
-          <TextInput style={styles.input}placeholder='Improvements'></TextInput>
+          <TextInput style={styles.input}
+          placeholder='Improvements'
+          underlineColorAndroid= 'transparent'
+          autoCorrect={false}>
+          </TextInput>
+          </ScrollView>       
         </View>
-      </View>
+       
+      </KeyboardAvoidingView>
     
     );
   }
@@ -58,12 +83,11 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    fontFamily:'Avenir Next',
     marginBottom:16,
   },
 
   input: {
-    fontFamily:'Avenir Next',
+   
     padding: 12,
     width: '100%',
     backgroundColor:'#fff',
