@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View,TextInput,KeyboardAvoidingView, ScrollView } from 'react-native';
+import { StyleSheet, Text, View,TextInput,KeyboardAvoidingView, ScrollView,TouchableOpacity } from 'react-native';
 
 
 export default class screenOne extends React.Component {
@@ -12,7 +12,8 @@ export default class screenOne extends React.Component {
   render() {
     return (
       
-    <KeyboardAvoidingView behavior='padding' keyboardVerticalOffset={80} style={styles.container}>
+   <View style={styles.container}>  
+    <KeyboardAvoidingView behavior='padding' keyboardVerticalOffset={80} >
      
        <View style={styles.header}>
         <Text style={styles.headerText}>Header Section</Text>
@@ -49,7 +50,16 @@ export default class screenOne extends React.Component {
         </View>
        
       </KeyboardAvoidingView>
-    
+
+      <TouchableOpacity
+          style={styles.button}
+          onPress={() => this.props.navigation.navigate('Home')}
+          >
+          <Text style={styles.buttonText}>Submit</Text>
+     </TouchableOpacity>
+
+    </View> 
+
     );
   }
 }
@@ -92,6 +102,18 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor:'#fff',
     marginBottom: 16,
-  }
+  },
+  
+     button:{
+        backgroundColor:"#bdc3c7",
+        paddingVertical:15,
+        margin:10,
+        marginTop:10,
+        borderRadius:15
+    },
+
+    buttonText:{
+        textAlign:"center"
+    }
 
 });
