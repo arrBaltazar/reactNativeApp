@@ -14,6 +14,7 @@ export default class screenOne extends React.Component {
       
 
  <KeyboardAvoidingView behavior='padding' keyboardVerticalOffset={ Platform.OS === 'ios' ? 60 : 160} style={styles.container} >     
+      
       <View style={styles.header}>
         <Text style={styles.headerText}>Header Section</Text>
       </View>
@@ -48,15 +49,30 @@ export default class screenOne extends React.Component {
           </TextInput>
         </ScrollView>       
       </View>
-       
+      
+      <TouchableOpacity  style={styles.helpButton}
+        onPress={() => {
+        this.popupDialog.show();
+        }}>
+        <Text style={styles.helpButtonText}>Testing help button</Text>
+      </TouchableOpacity>
+
+      <PopupDialog
+        ref={(popupDialog) => { this.popupDialog = popupDialog; }}
+       >
+        <View>
+          <Text>testing</Text>
+        </View>
+  
+      </PopupDialog>
+  
       <TouchableOpacity
           style={styles.button}
           onPress={() => this.props.navigation.navigate('Home')}
           >
           <Text style={styles.buttonText}>Submit</Text>
      </TouchableOpacity>
-      
-
+     
   </KeyboardAvoidingView>
 
     );
@@ -122,5 +138,21 @@ const styles = StyleSheet.create({
     buttonText:{
         textAlign:"center"
     },
+
+    helpButton:{
+      backgroundColor:"#bdc3c7",
+      paddingVertical:6,
+    
+
+      borderRadius:15
+  },
+
+  helpButtonText:{
+      textAlign:"center"
+  }
+
+
+
+
 
 });
