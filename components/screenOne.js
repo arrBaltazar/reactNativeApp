@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View,TextInput,KeyboardAvoidingView, ScrollView,TouchableOpacity } from 'react-native';
-
+import { StyleSheet, Text, View,TextInput,KeyboardAvoidingView, ScrollView,TouchableOpacity,Platform } from 'react-native';
+import PopupDialog from 'react-native-popup-dialog';
 
 export default class screenOne extends React.Component {
 
@@ -12,53 +12,52 @@ export default class screenOne extends React.Component {
   render() {
     return (
       
-   <View style={styles.container}>  
-    <KeyboardAvoidingView behavior='padding' keyboardVerticalOffset={80} >
-     
-       <View style={styles.header}>
-        <Text style={styles.headerText}>Header Section</Text>
-       </View>
-        <View style={styles.centering}>
 
-         <ScrollView >
+ <KeyboardAvoidingView behavior='padding' keyboardVerticalOffset={ Platform.OS === 'ios' ? 60 : 160} style={styles.container} >     
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Header Section</Text>
+      </View>
+        
+      <View style={styles.centering}>
+
+        <ScrollView >
           <Text style ={styles.text}>What good things happened today?</Text>
-          <TextInput style={styles.input} 
-           placeholder='good thing'
-           underlineColorAndroid= 'transparent'
-           autoCorrect={false}>
+          <TextInput style={styles.textInput} 
+            placeholder='good thing'
+            underlineColorAndroid= 'transparent'
+            autoCorrect={false}>
            </TextInput>
 
-          <TextInput style={styles.input} 
-          placeholder='good thing' 
-          underlineColorAndroid= 'transparent'
-          autoCorrect={false}>
+          <TextInput style={styles.textInput} 
+            placeholder='good thing' 
+            underlineColorAndroid= 'transparent'
+            autoCorrect={false}>
           </TextInput>
 
-          <TextInput style={styles.input} 
-          placeholder='good thing'
-          underlineColorAndroid= 'transparent'
-          autoCorrect={false}>
+          <TextInput style={styles.textInput} 
+            placeholder='good thing'
+            underlineColorAndroid= 'transparent'
+            autoCorrect={false}>
           </TextInput>
 
           <Text style ={styles.text}>What could have gone better?</Text>
-          <TextInput style={styles.input}
-          placeholder='Improvements'
-          underlineColorAndroid= 'transparent'
-          autoCorrect={false}>
+          <TextInput style={styles.textInput}
+            placeholder='Improvements'
+            underlineColorAndroid= 'transparent'
+            autoCorrect={false}>
           </TextInput>
-          </ScrollView>       
-        </View>
+        </ScrollView>       
+      </View>
        
-      </KeyboardAvoidingView>
-
       <TouchableOpacity
           style={styles.button}
           onPress={() => this.props.navigation.navigate('Home')}
           >
           <Text style={styles.buttonText}>Submit</Text>
      </TouchableOpacity>
+      
 
-    </View> 
+  </KeyboardAvoidingView>
 
     );
   }
@@ -82,7 +81,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderBottomColor: '#ddd',
-    marginTop:30,
+    
   },
 
   headerText:{
@@ -96,9 +95,17 @@ const styles = StyleSheet.create({
     marginBottom:16,
   },
 
-  input: {
+  textInput: {
    
-    padding: 12,
+    ...Platform.select({
+      ios: {
+        padding:12,
+      },
+      android: {
+        padding:4,
+      },
+     }),
+   
     width: '100%',
     backgroundColor:'#fff',
     marginBottom: 16,
@@ -114,6 +121,6 @@ const styles = StyleSheet.create({
 
     buttonText:{
         textAlign:"center"
-    }
+    },
 
 });
